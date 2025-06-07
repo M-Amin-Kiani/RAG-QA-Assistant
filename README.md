@@ -59,8 +59,9 @@ See `France_RAG_Report.docx` for full architecture and results.
 
 ## 🤝 Contributors
 
-- Your Name — AI Engineer
-
+- Amin Kiani — AI Engineer
+- Radmehr AghaKhani — AI Engineer
+  
 ## 📜 License
 
 MIT License
