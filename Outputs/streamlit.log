@@ -1,0 +1,195 @@
+
+Collecting usage statistics. To deactivate, set browser.gatherUsageStats to false.
+
+
+  You can now view your Streamlit app in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://172.28.0.12:8501
+  External URL: http://34.41.234.225:8501
+
+2025-06-07 18:30:42.691300: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:477] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+E0000 00:00:1749321042.737296   56104 cuda_dnn.cc:8310] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+E0000 00:00:1749321042.751119   56104 cuda_blas.cc:1418] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-06-07 18:30:50.888 Examining the path of torch.classes raised:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/streamlit/web/bootstrap.py", line 347, in run
+    if asyncio.get_running_loop().is_running():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/streamlit/watcher/local_sources_watcher.py", line 217, in get_module_paths
+    potential_paths = extract_paths(module)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/streamlit/watcher/local_sources_watcher.py", line 210, in <lambda>
+    lambda m: list(m.__path__._path),
+                   ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/_classes.py", line 13, in __getattr__
+    proxy = torch._C._get_custom_class_python_wrapper(self.name, attr)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Tried to instantiate class '__path__._path', but it does not exist! Ensure that it is registered via torch::class_
+[31m──[0m[31m────────────────────────[0m[31m [0m[1;31mTraceback [0m[1;2;31m(most recent call last)[0m[31m [0m[31m─────────────────────────[0m[31m──[0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/streamlit/runtime/scriptrunner/[0m[1;33mexec_code.py[0m: [31m [0m
+[31m [0m [94m121[0m in [92mexec_func_with_error_handling[0m                                                 [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/streamlit/runtime/scriptrunner/[0m[1;33mscript_runner[0m [31m [0m
+[31m [0m [1;33m.py[0m:[94m645[0m in [92mcode_to_exec[0m                                                              [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/content/[0m[1;33mapp.py[0m:[94m15[0m in [92m<module>[0m                                                       [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 12 [0mchunks = store[[33m"[0m[33mchunks[0m[33m"[0m]                                                       [31m [0m
+[31m [0m   [2m 13 [0mmetadata = store[[33m"[0m[33mmetadata[0m[33m"[0m]                                                   [31m [0m
+[31m [0m   [2m 14 [0membeddings = np.array(store[[33m"[0m[33membeddings[0m[33m"[0m]).astype([33m"[0m[33mfloat32[0m[33m"[0m)                   [31m [0m
+[31m [0m [31m❱ [0m 15 model = [1;4mSentenceTransformer([0m[1;4;33m"[0m[1;4;33mall-MiniLM-L6-v2[0m[1;4;33m"[0m[1;4m)[0m                                [31m [0m
+[31m [0m   [2m 16 [0m                                                                               [31m [0m
+[31m [0m   [2m 17 [0mfaiss.normalize_L2(embeddings)                                                 [31m [0m
+[31m [0m   [2m 18 [0mindex = faiss.IndexFlatIP(embeddings.shape[[94m1[0m])                                 [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/sentence_transformers/[0m[1;33mSentenceTransformer.py[0m [31m [0m
+[31m [0m :[94m348[0m in [92m__init__[0m                                                                     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 345 [0m[2m│   │   [0m[94mexcept[0m [96mStopIteration[0m:                                                 [31m [0m
+[31m [0m   [2m 346 [0m[2m│   │   │   [0m[94mpass[0m                                                              [31m [0m
+[31m [0m   [2m 347 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m [31m❱ [0m 348 [2m│   │   [0m[1;4;96mself[0m[1;4m.to(device)[0m                                                       [31m [0m
+[31m [0m   [2m 349 [0m[2m│   │   [0m[96mself[0m.is_hpu_graph_enabled = [94mFalse[0m                                     [31m [0m
+[31m [0m   [2m 350 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 351 [0m[2m│   │   [0m[94mif[0m [96mself[0m.default_prompt_name [95mis[0m [95mnot[0m [94mNone[0m [95mand[0m [96mself[0m.default_prompt_name  [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m1343[0m in [92mto[0m        [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m1340 [0m[2m│   │   │   │   [0m[94melse[0m:                                                         [31m [0m
+[31m [0m   [2m1341 [0m[2m│   │   │   │   │   [0m[94mraise[0m                                                     [31m [0m
+[31m [0m   [2m1342 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m [31m❱ [0m1343 [2m│   │   [0m[94mreturn[0m [1;4;96mself[0m[1;4m._apply(convert)[0m                                           [31m [0m
+[31m [0m   [2m1344 [0m[2m│   [0m                                                                          [31m [0m
+[31m [0m   [2m1345 [0m[2m│   [0m[94mdef[0m[90m [0m[92mregister_full_backward_pre_hook[0m(                                      [31m [0m
+[31m [0m   [2m1346 [0m[2m│   │   [0m[96mself[0m,                                                                 [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m903[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 900 [0m[2m│   [0m[94mdef[0m[90m [0m[92m_apply[0m([96mself[0m, fn, recurse=[94mTrue[0m):                                       [31m [0m
+[31m [0m   [2m 901 [0m[2m│   │   [0m[94mif[0m recurse:                                                           [31m [0m
+[31m [0m   [2m 902 [0m[2m│   │   │   [0m[94mfor[0m module [95min[0m [96mself[0m.children():                                    [31m [0m
+[31m [0m [31m❱ [0m 903 [2m│   │   │   │   [0m[1;4mmodule._apply(fn)[0m                                             [31m [0m
+[31m [0m   [2m 904 [0m[2m│   │   [0m                                                                      [31m [0m
+[31m [0m   [2m 905 [0m[2m│   │   [0m[94mdef[0m[90m [0m[92mcompute_should_use_set_data[0m(tensor, tensor_applied):              [31m [0m
+[31m [0m   [2m 906 [0m[2m│   │   │   [0m[94mif[0m torch._has_compatible_shallow_copy_type(tensor, tensor_applied [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m930[0m in [92m_apply[0m     [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m 927 [0m[2m│   │   │   [0m[2m# track autograd history of `param_applied`, so we have to use[0m    [31m [0m
+[31m [0m   [2m 928 [0m[2m│   │   │   [0m[2m# `with torch.no_grad():`[0m                                         [31m [0m
+[31m [0m   [2m 929 [0m[2m│   │   │   [0m[94mwith[0m torch.no_grad():                                             [31m [0m
+[31m [0m [31m❱ [0m 930 [2m│   │   │   │   [0mparam_applied = [1;4mfn(param)[0m                                     [31m [0m
+[31m [0m   [2m 931 [0m[2m│   │   │   [0mp_should_use_set_data = compute_should_use_set_data(param, param_ [31m [0m
+[31m [0m   [2m 932 [0m[2m│   │   │   [0m                                                                  [31m [0m
+[31m [0m   [2m 933 [0m[2m│   │   │   [0m[2m# subclasses may have multiple child tensors so we need to use sw[0m [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m [2;33m/usr/local/lib/python3.11/dist-packages/torch/nn/modules/[0m[1;33mmodule.py[0m:[94m1336[0m in [92mconvert[0m   [31m [0m
+[31m [0m                                                                                      [31m [0m
+[31m [0m   [2m1333 [0m[2m│   │   │   │   [0m)                                                             [31m [0m
+[31m [0m   [2m1334 [0m[2m│   │   │   [0m[94mexcept[0m [96mNotImplementedError[0m [94mas[0m e:                                  [31m [0m
+[31m [0m   [2m1335 [0m[2m│   │   │   │   [0m[94mif[0m [96mstr[0m(e) == [33m"[0m[33mCannot copy out of meta tensor; no data![0m[33m"[0m:      [31m [0m
+[31m [0m [31m❱ [0m1336 [2m│   │   │   │   │   [0m[1;4;94mraise[0m[1;4m [0m[1;4;96mNotImplementedError[0m[1;4m([0m                                [31m [0m
+[31m [0m   [2m1337 [0m[1;2;4m│   │   │   │   │   │   [0m[1;4;33mf[0m[1;4;33m"[0m[1;4;33m{[0m[1;4me[0m[1;4;33m}[0m[1;4;33m Please use torch.nn.Module.to_empty() instead o[0m [31m [0m
+[31m [0m   [2m1338 [0m[1;2;4m│   │   │   │   │   │   [0m[1;4;33mf[0m[1;4;33m"[0m[1;4;33mwhen moving module from meta to a different device.[0m [31m [0m
+[31m [0m   [2m1339 [0m[1;2;4m│   │   │   │   │   [0m[1;4m) [0m[1;4;94mfrom[0m[1;4;90m [0m[1;4;94mNone[0m                                               [31m [0m
+[31m────────────────────────────────────────────────────────────────────────────────────────[0m
+[1;91mNotImplementedError: [0mCannot copy out of meta tensor; no data! Please use 
+[1;35mtorch.nn.Module.to_empty[0m[1m([0m[1m)[0m instead of [1;35mtorch.nn.Module.to[0m[1m([0m[1m)[0m when moving module from meta 
+to a different device.
+2025-06-07 18:32:17.414 Examining the path of torch.classes raised:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/streamlit/web/bootstrap.py", line 347, in run
+    if asyncio.get_running_loop().is_running():
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/dist-packages/streamlit/watcher/local_sources_watcher.py", line 217, in get_module_paths
+    potential_paths = extract_paths(module)
+                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/streamlit/watcher/local_sources_watcher.py", line 210, in <lambda>
+    lambda m: list(m.__path__._path),
+                   ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/dist-packages/torch/_classes.py", line 13, in __getattr__
+    proxy = torch._C._get_custom_class_python_wrapper(self.name, attr)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Tried to instantiate class '__path__._path', but it does not exist! Ensure that it is registered via torch::class_
