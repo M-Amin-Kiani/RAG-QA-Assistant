@@ -1,4 +1,4 @@
-[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/M-Amin-Kiani/RichKids_ChatRoom)
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/M-Amin-Kiani/RAG-QA-Assistant)
 
 # 🇫🇷 RAG Assistant
 
